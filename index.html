@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-md fixed-top" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand ms-3" href="#">Atelier</a>
-        <button class="btn btn-outline-light btn-sm ms-auto" id="theme-toggle" aria-label="Cambia tema">
+        <button class="btn btn-outline-dark btn-sm ms-auto" id="theme-toggle" aria-label="Cambia tema">
           🌙
         </button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -109,6 +109,36 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione I nostri lavori -->
+  <section id="lavori" class="py-5 bg-light">
+    <div class="container py-4">
+      <h2 class="fw-bold text-center mb-2">I nostri lavori</h2>
+      <p class="text-muted text-center mb-5">
+        Una selezione curata dei nostri progetti recenti, dove la ricerca estetica incontra la funzionalità degli spazi.
+      </p>
+
+      <!-- Carosello Bootstrap -->
+      <div id="carouselLavori" class="carousel slide" data-bs-ride="false">
+
+        <!-- Contenitore delle slide che popoliamo via JS -->
+        <div class="carousel-inner" id="lavoriCarouselInner">
+          <!-- Le slide con le card inserite da JavaScript -->
+        </div>
+
+        <!-- Frecce angolari laterali di Bootstrap -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselLavori" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Precedente</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselLavori" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Successivo</span>
+        </button>
+
       </div>
     </div>
   </section>

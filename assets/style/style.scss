@@ -67,6 +67,13 @@ $link-footer-hover: hsl(40, 30%, 90%);
     z-index: 1030; // Assicura che rimanga sopra tutti gli altri elementi durante lo scroll
 }
 
+.hero {
+    position: relative;
+    margin-top: 50px;
+    background-color: $bg-hero !important;
+    color: #ffffff;
+}
+
 /* Stili di base per il tema chiaro (default) o scuro globale */
 body {
     background-color: #ffffff;
@@ -150,5 +157,47 @@ footer {
 
     a:hover {
         color: $link-footer-hover !important;
+    }
+}
+
+/* Personalizzazione frecce del carosello Bootstrap */
+#carouselLavori {
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 5%;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    // Icone delle frecce scure per il tema chiaro
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(1);
+    }
+}
+
+/* Adattamento tema scuro per il carosello */
+body.dark {
+    #lavori.bg-light {
+        background-color: #181514 !important;
+    }
+
+    #carouselLavori {
+
+        // Ripristiniamo le frecce bianche sul fondo scuro
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(0);
+        }
+    }
+
+    // Colore del rettangolo grigio segnaposto in dark mode
+    .card-img-placeholder {
+        background-color: #2d2825 !important;
+        color: #b0a8a2 !important;
     }
 }

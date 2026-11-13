@@ -28,6 +28,13 @@
   z-index: 1030;
 }
 
+.hero {
+  position: relative;
+  margin-top: 50px;
+  background-color: hsl(20, 30%, 35%) !important;
+  color: #ffffff;
+}
+
 /* Stili di base per il tema chiaro (default) o scuro globale */
 body {
   background-color: #ffffff;
@@ -102,4 +109,32 @@ footer {
 }
 footer a:hover {
   color: hsl(40, 30%, 90%) !important;
+}
+
+/* Personalizzazione frecce del carosello Bootstrap */
+#carouselLavori .carousel-control-prev,
+#carouselLavori .carousel-control-next {
+  width: 5%;
+  opacity: 0.8;
+}
+#carouselLavori .carousel-control-prev:hover,
+#carouselLavori .carousel-control-next:hover {
+  opacity: 1;
+}
+#carouselLavori .carousel-control-prev-icon,
+#carouselLavori .carousel-control-next-icon {
+  filter: invert(1);
+}
+
+/* Adattamento tema scuro per il carosello */
+body.dark #lavori.bg-light {
+  background-color: #181514 !important;
+}
+body.dark #carouselLavori .carousel-control-prev-icon,
+body.dark #carouselLavori .carousel-control-next-icon {
+  filter: invert(0);
+}
+body.dark .card-img-placeholder {
+  background-color: #2d2825 !important;
+  color: #b0a8a2 !important;
 }/*# sourceMappingURL=style.css.map */

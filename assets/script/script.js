@@ -5,6 +5,16 @@
 // Per le versioni Intermedia e Avanzata: filtri lavori, toggle tema, validazione form.
 
 
+// Arrey PROGETTI
+const lavoriData = [
+    { title: "Casa al Lago", category: "Residenziale", year: "2025", placeholder: "400 x 250" },
+    { title: "Villa Minimal", category: "Architettura", year: "2025", placeholder: "400 x 250" },
+    { title: "Loft Industriale", category: "Interior", year: "2024", placeholder: "400 x 250" },
+    { title: "Palazzo Storico", category: "Ristrutturazione", year: "2024", placeholder: "400 x 250" },
+    { title: "Headquarters Tech", category: "Commerciale", year: "2025", placeholder: "400 x 250" },
+    { title: "Penthouse Vista", category: "Residenziale", year: "2023", placeholder: "400 x 250" }
+];
+
 //toggle tema
 const themeToggleBtn = document.getElementById("theme-toggle");
 
@@ -19,7 +29,7 @@ themeToggleBtn.addEventListener("click", () => {
     }
 });
 
-// --- 3. VALIDAZIONE FORM NELLA MODALE ---
+// VALIDAZIONE FORM NELLA MODALE 
 
 const contactForm = document.getElementById("contact-form");
 const userEmail = document.getElementById("user-email");
@@ -54,3 +64,67 @@ contactForm.addEventListener("submit", (event) => {
         contactForm.reset();
     }
 });
+
+// --- CREAZIONE DINAMICA CAROSELLO LAVORI BOOTSTRAP ---
+
+// Prendo il contenitore interno del carosello
+const lavoriCarouselInner = document.getElementById("lavoriCarouselInner");
+
+// Divido l'array in gruppi da 3 card ciascuno
+for (let i = 0; i < lavoriData.length; i += 3) {
+
+    // Creo la singola slide del carosello
+    const carouselItem = document.createElement("div");
+    carouselItem.className = `carousel-item ${i === 0 ? "active" : ""}`;
+
+    // Creo la riga di Bootstrap
+    const row = document.createElement("div");
+    row.className = "row g-4 justify-content-center";
+
+    // Prendo il gruppetto di 3 lavori corrente
+    const gruppoLavori = lavoriData.slice(i, i + 3);
+
+    gruppoLavori.forEach((lavoro, index) => {
+        // Creo la colonna (su mobile ne mostra una sola, da tablet tre)
+        const col = document.createElement("div");
+        col.className = `col-12 col-md-4 ${index > 0 ? "d-none d-md-block" : ""}`;
+
+        // Creo la card
+        const card = document.createElement("div");
+        card.className = "card h-100 border-0 shadow-sm";
+
+        // Creo il box grigio segnaposto al centro
+        const placeholder = document.createElement("div");
+        placeholder.className = "card-img-top card-img-placeholder bg-secondary text-white d-flex align-items-center justify-content-center fw-semibold";
+        placeholder.style.height = "220px";
+        placeholder.textContent = lavoro.placeholder;
+
+        // Creo il corpo della card
+        const cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+
+        // Badge con categoria e anno
+        const badge = document.createElement("span");
+        badge.className = "badge bg-secondary mb-2";
+        badge.textContent = `${lavoro.category} • ${lavoro.year}`;
+
+        // Titolo del lavoro
+        const title = document.createElement("h5");
+        title.className = "card-title fw-bold mb-0";
+        title.textContent = lavoro.title;
+
+        // Assemblo tutti i pezzi dentro la card
+        cardBody.appendChild(badge);
+        cardBody.appendChild(title);
+
+        card.appendChild(placeholder);
+        card.appendChild(cardBody);
+        col.appendChild(card);
+
+        row.appendChild(col);
+    });
+
+    // Metto la riga dentro la slide e la slide dentro il carosello
+    carouselItem.appendChild(row);
+    lavoriCarouselInner.appendChild(carouselItem);
+}
