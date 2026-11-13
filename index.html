@@ -17,6 +17,9 @@
     <nav class="navbar navbar-expand-md fixed-top" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand ms-3" href="#">Atelier</a>
+        <button class="btn btn-outline-light btn-sm ms-auto" id="theme-toggle" aria-label="Cambia tema">
+          🌙
+        </button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -111,55 +114,64 @@
   </section>
 
   <!-- Form contatti Bootstrap, larghezza limitata e centrata -->
-  <section id="contatti" class="py-5">
-    <div class="container">
-      <!-- Intestazione della sezione -->
-      <div class="text-center mb-5">
-        <h2 class="fw-bold">Contattaci</h2>
-        <p class="text-muted">Compila il form, ti risponderemo entro 48 ore.</p>
-      </div>
+  <section id="contatti" class="py-5 text-center">
+    <div class="container py-4">
+      <h2 class="fw-bold mb-3">Parla con noi</h2>
+      <p class="text-muted mb-4">
+        Hai un progetto in mente? Clicca sul pulsante sottostante, compila il form e ti risponderemo entro 48 ore.
+      </p>
+      <!-- Pulsante che apre la modale -->
+      <button type="button" class="btn btn-primary px-4 py-2" data-bs-toggle="modal" data-bs-target="#modalContatti">
+        Contattaci
+      </button>
+    </div>
+  </section>
 
-      <!-- Form di contatto centrato e a larghezza limitata -->
-      <div class="row justify-content-center">
-        <div class="col-lg-7 col-md-9">
-          <form>
-            <!-- Campo Nome -->
-            <div class="mb-3">
-              <label for="nome" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="nome" required>
+  <!-- Modale Bootstrap con il Form -->
+  <div class="modal fade" id="modalContatti" tabindex="-1" aria-labelledby="modalContattiLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="modalContattiLabel">Richiedi una consulenza</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Compila i campi sottostanti. Ti risponderemo entro 48 ore.</p>
+
+          <!-- Contenitore per i messaggi di errore o successo (invisibile all'inizio) -->
+          <div id="form-feedback" class="alert d-none mb-3" role="alert"></div>
+
+          <form id="contact-form" novalidate>
+            <div class="mb-3 text-start">
+              <label for="user-email" class="form-label small fw-semibold">Email</label>
+              <input type="email" class="form-control" id="user-email" placeholder="nome@esempio.com">
             </div>
 
-            <!-- Campo Email -->
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" required>
-            </div>
-
-            <!-- Tendina Tipo di progetto -->
-            <div class="mb-3">
-              <label for="tipoProgetto" class="form-label">Tipo di progetto</label>
-              <select class="form-select" id="tipoProgetto">
-                <option selected>Residenziale</option>
-                <option value="interior">Interior design</option>
-                <option value="ristrutturazioni">Ristrutturazioni</option>
+            <div class="mb-3 text-start">
+              <label for="project-type" class="form-label small fw-semibold">Tipo di progetto</label>
+              <select class="form-select" id="project-type">
+                <option value="" selected disabled>Seleziona un'opzione...</option>
+                <option value="residenziale">Residenziale</option>
+                <option value="interior">Interior Design</option>
+                <option value="ristrutturazione">Ristrutturazione</option>
               </select>
             </div>
 
-            <!-- Campo Messaggio -->
-            <div class="mb-3">
-              <label for="messaggio" class="form-label">Messaggio</label>
-              <textarea class="form-control" id="messaggio" rows="4"></textarea>
+            <div class="mb-3 text-start">
+              <label for="user-message" class="form-label small fw-semibold">Messaggio</label>
+              <textarea class="form-control" id="user-message" rows="4"
+                placeholder="Descrivi brevemente l'idea (almeno 20 caratteri)..."></textarea>
             </div>
 
-            <!-- Pulsante di Invio -->
-            <div class="text-center mt-4">
-              <button type="submit" class="btn btn-primary px-5">Invia</button>
-            </div>
+            <button type="submit" class="btn btn-primary w-100">Invia richiesta</button>
           </form>
         </div>
+
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- 3 colonne: Atelier+indirizzo / Link / Contatti. Copyright in fondo -->
   <footer class="text-white py-5">

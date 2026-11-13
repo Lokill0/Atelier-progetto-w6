@@ -23,14 +23,69 @@
 }
 
 .navbar.sticky-top {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1030;
 }
 
-.hero {
-  background-color: hsl(20, 30%, 35%);
-  min-height: 80vh;
+/* Stili di base per il tema chiaro (default) o scuro globale */
+body {
+  background-color: #ffffff;
+  color: #212529;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Quando viene attivata la classe .dark */
+body.dark {
+  background-color: #181514;
+  color: #e6e2df;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.dark .card {
+  background-color: #231f1d;
+  color: #e6e2df;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+body.dark .text-muted {
+  color: #b0a8a2 !important;
+}
+body.dark .bg-light {
+  background-color: #1f1b19 !important;
+  color: #e6e2df !important;
+}
+body.dark .bg-light .text-muted {
+  color: #b0a8a2 !important;
+}
+body.dark .modal-content {
+  background-color: #1f1b19;
+  color: #e6e2df;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+body.dark .modal-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+body.dark .modal-header .btn-close {
+  filter: invert(1);
+}
+body.dark .form-control,
+body.dark .form-select {
+  background-color: #2b2b2b;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.dark .form-control::-moz-placeholder, body.dark .form-select::-moz-placeholder {
+  color: #ffffff;
+}
+body.dark .form-control::placeholder,
+body.dark .form-select::placeholder {
+  color: #ffffff;
+}
+body.dark .form-label {
+  color: #ffffff;
+}
+body.dark footer.bg-dark {
+  background-color: #1f1b19 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .card {

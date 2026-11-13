@@ -62,15 +62,81 @@ $link-footer-hover: hsl(40, 30%, 90%);
 }
 
 .navbar.sticky-top {
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1030; // Assicura che rimanga sopra tutti gli altri elementi durante lo scroll
 }
 
-// Sezione Hero
-.hero {
-    background-color: $bg-hero;
-    min-height: 80vh;
+/* Stili di base per il tema chiaro (default) o scuro globale */
+body {
+    background-color: #ffffff;
+    color: #212529;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Quando viene attivata la classe .dark */
+body.dark {
+    background-color: #181514;
+    color: #e6e2df;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    .card {
+        background-color: #231f1d;
+        color: #e6e2df;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    // CORREZIONE TESTI
+    .text-muted {
+        color: #b0a8a2 !important;
+    }
+
+    // Sezioni con bg-light nel tema scuro
+    .bg-light {
+        background-color: #1f1b19 !important;
+        color: #e6e2df !important;
+
+        .text-muted {
+            color: #b0a8a2 !important;
+        }
+    }
+
+    // Modale nel tema scuro
+    .modal-content {
+        background-color: #1f1b19;
+        color: #e6e2df;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-header {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+
+        .btn-close {
+            filter: invert(1); // Rende la X di chiusura bianca sul tema scuro
+        }
+    }
+
+    .form-control,
+    .form-select {
+        background-color: #2b2b2b;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        &::placeholder {
+            color: #ffffff;
+        }
+    }
+
+    .form-label {
+        color: #ffffff;
+    }
+
+    //footer
+    footer.bg-dark {
+        background-color: #1f1b19 !important; // Stesso marrone/antracite caldo usato per le sezioni
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
 }
 
 // Applicazione del mixin ombra alle card
