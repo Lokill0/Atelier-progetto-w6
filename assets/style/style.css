@@ -1,0 +1,50 @@
+.navbar {
+  background-color: hsl(20, 20%, 15%) !important;
+}
+
+.btn-primary {
+  background-color: hsl(20, 30%, 35%);
+  border-color: hsl(20, 30%, 35%);
+}
+.btn-primary:hover {
+  background-color: hsl(20, 30%, 27%);
+  border-color: hsl(20, 30%, 27%);
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.navbar.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+.hero {
+  background-color: hsl(20, 30%, 35%);
+  min-height: 80vh;
+}
+
+.card {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+footer {
+  background-color: hsl(20, 20%, 15%);
+}
+footer a:hover {
+  color: hsl(40, 30%, 90%) !important;
+}/*# sourceMappingURL=style.css.map */

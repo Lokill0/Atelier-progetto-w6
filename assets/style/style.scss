@@ -1,0 +1,88 @@
+// Atelier — Week Project Settimana VI
+// Definisci qui le tue variabili, mixin, override Bootstrap.
+
+
+// === Variabili (definisci $brand-primary, $brand-secondary, $radius-base, ecc.) ===
+$btn-bg: hsl(20, 30%, 35%);
+$btn-hover-bg: hsl(20, 30%, 27%);
+$bg-principale: hsl(20, 30%, 35%);
+$bg-nav: hsl(20, 20%, 15%);
+$bg-hero: hsl(20, 30%, 35%);
+$shadow-card: 0 2px 6px rgba(0, 0, 0, 0.08);
+$shadow-card-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
+$bg-footer: hsl(20, 20%, 15%);
+$link-footer-hover: hsl(40, 30%, 90%);
+
+
+// === Mixin (definisci almeno @mixin card-elevata o equivalente) ===
+@mixin card-ombra-transizione {
+    box-shadow: $shadow-card;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; // Aggiungiamo transform alla transizione
+
+    &:hover {
+        transform: translateY(-5px); // Fa sollevare leggermente la card verso l'alto
+        box-shadow: $shadow-card-hover;
+    }
+}
+
+
+
+// === Override Bootstrap (sovrascrivi .btn-primary, .bg-primary, .text-primary col tuo colore brand) ===
+.navbar {
+    background-color: $bg-nav !important;
+}
+
+.btn-primary {
+    background-color: $btn-bg;
+    border-color: $btn-bg;
+
+    &:hover {
+        background-color: $btn-hover-bg;
+        border-color: $btn-hover-bg;
+    }
+}
+
+
+
+// === Stili custom delle sezioni (header sticky, hero, servizi, contatti, footer) ===
+
+// Stile link Navbar
+.navbar-nav {
+    .nav-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+    }
+}
+
+.navbar.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1030; // Assicura che rimanga sopra tutti gli altri elementi durante lo scroll
+}
+
+// Sezione Hero
+.hero {
+    background-color: $bg-hero;
+    min-height: 80vh;
+}
+
+// Applicazione del mixin ombra alle card
+.card {
+    @include card-ombra-transizione;
+}
+
+// Footer
+footer {
+    background-color: $bg-footer;
+
+    a:hover {
+        color: $link-footer-hover !important;
+    }
+}
